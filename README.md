@@ -54,7 +54,7 @@ wget https://raw.githubusercontent.com/AndreV84/mediapipe/master/config.sub
 # editing file WORKSPACES in the mediapipe folder:
 # In my case I am installing opencv4.3 in a custom manner using drafted commands from here # https://github.com/AndreV84/Jetson/blob/master/opencv43
 ```
-`
+```
 new_local_repository(
 
 name = "linux_opencv",
@@ -62,6 +62,7 @@ name = "linux_opencv",
 build_file = "@//third_party:opencv_linux.BUILD",
 
 path = "/usr/local/opencv-4.3.0-dev/",
+```
 ```
 ```
 # editing opencv BUILD file in the third_party folder in the mediapipe folder:
