@@ -123,11 +123,10 @@ gst-launch-1.0 -v nvarguscamerasrc ! 'video/x-raw(memory:NVMM), format=NV12, wid
 /mediapipe/blob/master/mediapipe/examples/desktop/demo_run_graph_main_gpu.cc , line 73
 changing 0 to 2. capture.open(0); -> capture.open(2);
 ```
-bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11 \
-    mediapipe/examples/desktop/multi_hand_tracking:multi_hand_tracking_gpu
+bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11     mediapipe/examples/desktop/hand_tracking:hand_tracking_gpu
     
-    GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/multi_hand_tracking/multi_hand_tracking_gpu \
-    --calculator_graph_config_file=mediapipe/graphs/hand_tracking/multi_hand_tracking_mobile.pbtxt
+    GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_gpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_mobile.pbtxt
+
 ```
 # under construction: running webcam hand sample with direct nvargus access
 editing the file  demo_run_graph_main_gpu.cc
