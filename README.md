@@ -1,5 +1,10 @@
 # mediapipe:
-/// it is an effort to incorporate medipipe to Jetson ecosystem; tested on Jetson Xavier AGX. aarch64,Linux Tegra
+It is an effort to incorporate medipipe to Jetson ecosystem; tested on Jetson Xavier AGX. aarch64,Linux Tegra
+Reference threads:
+https://github.com/google/mediapipe/issues/655
+https://forums.developer.nvidia.com/t/mediapipe/121120/8
+Mediapipe docs:
+https://mediapipe.readthedocs.io/en/latest/multi_hand_tracking_desktop.html?highlight=multi#tensorflow-lite-multi-hand-tracking-demo-with-webcam-gpu
 # Installing Bazel & Dependencies
 ```
 sudo nvpmoodel -m0 && sudo jetson_clocks # enabling max performance mode
@@ -35,6 +40,7 @@ bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11  mediapi
 # https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD 
 ```
 wget https://raw.githubusercontent.com/AndreV84/mediapipe/master/config.guess
+
 wget https://raw.githubusercontent.com/AndreV84/mediapipe/master/config.sub
 ```
 ```
@@ -43,9 +49,13 @@ wget https://raw.githubusercontent.com/AndreV84/mediapipe/master/config.sub
 # editing file WORKSPACES in the mediapipe folder:
 # In my case I am installing opencv4.3 in a custom manner using drafted commands from here # https://github.com/AndreV84/Jetson/blob/master/opencv43
 ```
-`new_local_repository(
+`
+new_local_repository(
+
 name = "linux_opencv",
+
 build_file = "@//third_party:opencv_linux.BUILD",
+
 path = "/usr/local/opencv-4.3.0-dev/",
 ```
 ```
