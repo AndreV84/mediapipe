@@ -1,10 +1,15 @@
 # mediapipe:
 It is an effort to incorporate medipipe to Jetson ecosystem; tested on Jetson Xavier AGX. aarch64,Linux Tegra
+
 Reference threads:
 https://github.com/google/mediapipe/issues/655
+
 https://forums.developer.nvidia.com/t/mediapipe/121120/8
+
 Mediapipe docs:
+
 https://mediapipe.readthedocs.io/en/latest/multi_hand_tracking_desktop.html?highlight=multi#tensorflow-lite-multi-hand-tracking-demo-with-webcam-gpu
+
 # Installing Bazel & Dependencies
 ```
 sudo nvpmoodel -m0 && sudo jetson_clocks # enabling max performance mode
