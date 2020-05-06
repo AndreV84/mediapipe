@@ -2,6 +2,7 @@
 It is an effort to incorporate medipipe to Jetson ecosystem; tested on Jetson Xavier AGX. aarch64,Linux Tegra
 
 Reference threads:
+
 https://github.com/google/mediapipe/issues/655
 
 https://forums.developer.nvidia.com/t/mediapipe/121120/8
@@ -52,7 +53,12 @@ wget https://raw.githubusercontent.com/AndreV84/mediapipe/master/config.sub
 # Editing mediapipe config files to match opencv installation:
 ```
 # editing file WORKSPACES in the mediapipe folder:
-# In my case I am installing opencv4.3 in a custom manner using drafted commands from here # https://github.com/AndreV84/Jetson/blob/master/opencv43
+
+# In my case I am installing opencv4.3 in a custom manner using drafted commands from here # 
+
+https://github.com/AndreV84/Jetson/blob/master/opencv43
+
+# I assume that from opencv_contrib modules only optflow is required
 ```
 ```
 new_local_repository(
