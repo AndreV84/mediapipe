@@ -7,6 +7,8 @@ https://github.com/google/mediapipe/issues/655
 
 https://forums.developer.nvidia.com/t/mediapipe/121120/8
 
+https://github.com/mgyong/awesome-mediapipe/blob/master/README.md#nvidia-jetson-integration-draft-beta
+
 Mediapipe docs:
 
 https://mediapipe.readthedocs.io/en/latest/multi_hand_tracking_desktop.html?highlight=multi#tensorflow-lite-multi-hand-tracking-demo-with-webcam-gpu
