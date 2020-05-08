@@ -6,7 +6,7 @@ It is an effort to incorporate medipipe to Jetson ecosystem; tested on Jetson Xa
 - [Downloading mediapipe sources and patching](#downloading-mediapipe--patching)
 - [Adjusting mediapipe opencv config paths](#editing-mediapipe-config-files-to-match-opencv-installation)
 - [Building example and running](#building-and-running-an-example)
-- [Setting up loopback](#using-cpu-expencive-v4l2loopback-for-webcamera-mode-of-nvargus-csi-jetson-sensor)
+- [Setting up loopback](#using-cpu-expensive-v4l2loopback-for-webcamera-mode-of-nvargus-csi-jetson-sensor)
 - [Using webcam mode of Jetson CSI sensor via loopback](#running-hand-webcam-sample-using-v4l2loop-above)
 - [Direct access to CSI sensor without the loopback](#under-construction-running-webcam-hand-sample-with-direct-nvargus-access)
 
@@ -115,7 +115,7 @@ bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11 mediapip
 
 GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_gpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_mobile.pbtxt --input_video_path=/home/nvidia/Downloads/Big_Buck_Bunny_1080_10s_30MB.mp4 --output_video_path=/home/nvidia/Downloads/output.mp4
 ```
-# using cpu expencive v4l2loopback for webcamera mode of nvargus CSI Jetson sensor:
+# using cpu expensive v4l2loopback for webcamera mode of nvargus CSI Jetson sensor:
 ```
 sudo su
 cd /usr/src/linux-headers-4.9.140-tegra-ubuntu18.04_aarch64/kernel-4.9
