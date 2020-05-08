@@ -57,14 +57,12 @@ bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11  mediapi
 
 ```
 # Install updated files instead:
-# getting updated files, downloaded from  https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD
-# https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD 
-```
+
 wget https://raw.githubusercontent.com/AndreV84/mediapipe/master/config.guess
 
 wget https://raw.githubusercontent.com/AndreV84/mediapipe/master/config.sub
 ```
-```
+
 # Editing mediapipe config files to match opencv installation:
 ```
 # editing file WORKSPACES in the mediapipe folder:
