@@ -1,3 +1,4 @@
+It is an effort to incorporate medipipe to Jetson ecosystem; tested on Jetson Xavier AGX. aarch64,Linux Tegra
 ### Contents
 - [References](#references)
 - [Installing bazel](#installing-bazel--dependencies)
@@ -11,7 +12,7 @@
 
         
 ## Reference:
-It is an effort to incorporate medipipe to Jetson ecosystem; tested on Jetson Xavier AGX. aarch64,Linux Tegra
+
 Reference threads:
 
 https://github.com/google/mediapipe/issues/655
