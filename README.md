@@ -1,9 +1,17 @@
 ### Contents
--
-        -[links and urls](#references)
-## references:
-It is an effort to incorporate medipipe to Jetson ecosystem; tested on Jetson Xavier AGX. aarch64,Linux Tegra
+- [References](#references)
+- [installing bazel](#installing-bazel--dependencies)
+- [downloading sample video](#downloading-video-sample)
+- [downloading mediapipe sources and patching](#downloading-mediapipe--patching)
+- [adjusting gmediapipe opencv config paths](#editing-mediapipe-config-files-to-match-opencv-installation)
+- [building example and running](#building-and-running-an-example)
+- [setting up loopback](#using-cpu-expencive-v4l2loopback-for-webcamera-mode-of-nvargus-csi-jetson-sensor)
+- [using webcam mode of Jetson CSI sensor via loopback](#running-hand-webcam-sample-using-v4l2loop-above)
+- [direct access to CSI sensor without the loopback](#under-construction-running-webcam-hand-sample-with-direct-nvargus-access)
 
+        
+## reference:
+It is an effort to incorporate medipipe to Jetson ecosystem; tested on Jetson Xavier AGX. aarch64,Linux Tegra
 Reference threads:
 
 https://github.com/google/mediapipe/issues/655
@@ -39,8 +47,10 @@ bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11  mediapi
 # it will fail but will provide path that will need to be patched; In my case it is
 #/home/nvidia/.cache/bazel/_bazel_nvidia/ff4425722229fc486cc849b5677abe3f/external/com_github_glog_glog/
 ```
+```
 # cd to the /external/com_github_glog_glog/ folder detected by the output message of execution above
 # delete or remove two files from there:
+```
 ```
 ##~/.cache/bazel/_bazel_nvidia/ff4425722229fc486cc849b5677abe3f/external/com_github_glog_glog$ mv config.sub config.sub.bak && mv config.guess config.guess.bak
 ```
@@ -76,7 +86,9 @@ path = "/usr/local/opencv-4.3.0-dev/",
 ```
 ```
 ```
+```
 # editing opencv BUILD file in the third_party folder in the mediapipe folder:
+```
 ```
 cc_library(
 name = "opencv",
