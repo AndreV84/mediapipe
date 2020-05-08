@@ -1,13 +1,13 @@
 ### Contents
 - [References](#references)
-- [installing bazel](#installing-bazel--dependencies)
-- [downloading sample video](#downloading-video-sample)
-- [downloading mediapipe sources and patching](#downloading-mediapipe--patching)
-- [adjusting gmediapipe opencv config paths](#editing-mediapipe-config-files-to-match-opencv-installation)
-- [building example and running](#building-and-running-an-example)
-- [setting up loopback](#using-cpu-expencive-v4l2loopback-for-webcamera-mode-of-nvargus-csi-jetson-sensor)
-- [using webcam mode of Jetson CSI sensor via loopback](#running-hand-webcam-sample-using-v4l2loop-above)
-- [direct access to CSI sensor without the loopback](#under-construction-running-webcam-hand-sample-with-direct-nvargus-access)
+- [Installing bazel](#installing-bazel--dependencies)
+- [Downloading sample video](#downloading-video-sample)
+- [Downloading mediapipe sources and patching](#downloading-mediapipe--patching)
+- [Adjusting gmediapipe opencv config paths](#editing-mediapipe-config-files-to-match-opencv-installation)
+- [Building example and running](#building-and-running-an-example)
+- [Setting up loopback](#using-cpu-expencive-v4l2loopback-for-webcamera-mode-of-nvargus-csi-jetson-sensor)
+- [Using webcam mode of Jetson CSI sensor via loopback](#running-hand-webcam-sample-using-v4l2loop-above)
+- [Direct access to CSI sensor without the loopback](#under-construction-running-webcam-hand-sample-with-direct-nvargus-access)
 
         
 ## reference:
