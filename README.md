@@ -86,7 +86,7 @@ path = "/usr/local/opencv-4.3.0-dev/",
 ```
 ```
 ```
-# editing opencv BUILD file in the third_party folder in the mediapipe folder:
+# editing opencv_linux.BUILD file in the third_party folder in the mediapipe folder:
 ```
 ```
 cc_library(
