@@ -72,7 +72,7 @@ wget https://raw.githubusercontent.com/AndreV84/mediapipe/master/config.sub
 
 https://github.com/AndreV84/Jetson/blob/master/opencv43
 
-# I assume that from opencv_contrib modules only optflow is required
+# I assume that from opencv_contrib modules only optflow/cudev/imageproc are required
 ```
 ```
 new_local_repository(
