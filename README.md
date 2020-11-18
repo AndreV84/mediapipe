@@ -153,31 +153,6 @@ bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11     medi
     GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_gpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_mobile.pbtxt
 
 ```
-# under construction: running webcam hand sample with direct nvargus access
-editing the file  demo_run_graph_main_gpu.cc
-modified fragment
-```
-`LOG(INFO) << "Initialize the camera or load the video.";
-  cv::VideoCapture capture;
-  const bool load_video = !FLAGS_input_video_path.empty();
-  const char* gst =  "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=1280, height=720 !  nvvidconv ! video/x-raw,format=I420 ! appsink";
-  
-if (load_video) {
-    capture.open(FLAGS_input_video_path);
-  } else {
-    capture.open(gst, cv::CAP_GSTREAMER);
-  }
-  RET_CHECK(capture.isOpened());
-
-  cv::VideoWriter writer;
-  const bool save_video = !FLAGS_output_video_path.empty();
-  if (!save_video) {
-    cv::namedWindow(kWindowName, /*flags=WINDOW_AUTOSIZE*/ 1);
-#if (CV_MAJOR_VERSION >= 3) && (CV_MINOR_VERSION >= 2)
-    capture.set(cv::CAP_PROP_FRAME_WIDTH, 1280);
-    capture.set(cv::CAP_PROP_FRAME_HEIGHT, 720);
-    capture.set(cv::CAP_PROP_FPS, 120);
-#endif`
-```
-so it will read directly freom nvargus, but the latter wil throw an error; it needs to be investigated further
-
+#  running webcam hand sample with direct nvargus access
+USING PATCHED FILE https://github.com/AndreV84/mediapipe/blob/master/demo_run_graph_main_gpu_mod.cc 
+it contains modified fragment that uses rather CSI than USB camera
