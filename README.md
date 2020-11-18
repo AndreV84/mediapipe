@@ -68,9 +68,9 @@ wget https://raw.githubusercontent.com/AndreV84/mediapipe/master/config.sub
 ```
 # editing file WORKSPACES in the mediapipe folder:
 
-# In my case I am installing opencv4.3 in a custom manner using drafted commands from here # 
+# In my case I am installing opencv4.5-0 in a custom manner using drafted commands from here # 
 
-https://github.com/AndreV84/Jetson/blob/master/opencv43
+https://github.com/AndreV84/mediapipe/blob/master/opencv4-5-0-cmake
 
 # I assume that from opencv_contrib modules only optflow/cudev/imageproc are required
 ```
@@ -81,7 +81,7 @@ name = "linux_opencv",
 
 build_file = "@//third_party:opencv_linux.BUILD",
 
-path = "/usr/local/opencv-4.3.0-dev/",
+path = "/usr/local/opencv-4.5.0-dev/",
 ```
 ```
 ```
@@ -111,42 +111,18 @@ visibility = ["//visibility:public"],
 ```
 # building and Running an example
 ```
-#export OPENCV_DIR=opencv-4.3.0-dev
+#export OPENCV_DIR=opencv-4.5.0-dev
 #export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$OPENCV_DIR/lib
 bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11 mediapipe/examples/desktop/hand_tracking:hand_tracking_gpu
 
 GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_gpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_mobile.pbtxt --input_video_path=/home/nvidia/Downloads/Big_Buck_Bunny_1080_10s_30MB.mp4 --output_video_path=/home/nvidia/Downloads/output.mp4
 ```
-# using cpu expensive v4l2loopback for webcamera mode of nvargus CSI Jetson sensor:
-```
-sudo su
-cd /usr/src/linux-headers-4.9.140-tegra-ubuntu18.04_aarch64/kernel-4.9
-## dropped in latter release##make modules_prepare
-mkdir v4l2loopback
-git clone https://github.com/umlaeute/v4l2loopback.git v4l2loopback
-cd v4l2loopback && git checkout -b v0.10.0
-make
-## if the sequence above fails - adopt the line: make -C /lib/modules/4.9.140-tegra/build M=`$pwd` modules
-## make -C /lib/modules/`uname -r`-tegra/build M=/usr/src/v4l2loopback modules_install
 
-make install
-apt-get install -y v4l2loopback-dkms v4l2loopback-utils
-modprobe v4l2loopback devices=1 video_nr=2 exclusive_caps=1
-echo options v4l2loopback devices=1 video_nr=2 exclusive_caps=1 > /etc/modprobe.d/v4l2loopback.conf
-echo v4l2loopback > /etc/modules
-update-initramfs -u
-```
-# running v4l2loopback from separate terminal
-```
-gst-launch-1.0 -v nvarguscamerasrc ! 'video/x-raw(memory:NVMM), format=NV12, width=1920, height=1080, framerate=30/1' ! nvvidconv ! 'video/x-raw, width=640, height=480, format=I420, framerate=30/1' ! videoconvert ! identity drop-allocation=1 ! 'video/x-raw, width=640, height=480, format=RGB, framerate=30/1' ! v4l2sink device=/dev/video2
-```
 
-# running hand webcam sample using v4l2loop above:
 
-/// as the lopback will render sensor 02 the value 0 will need to be changed to 02 at the file
-/// https://github.com/google/mediapipe/blob/master/mediapipe/examples/desktop/demo_run_graph_main_gpu.cc#L73
-/mediapipe/blob/master/mediapipe/examples/desktop/demo_run_graph_main_gpu.cc , line 73
-changing 0 to 2. capture.open(0); -> capture.open(2);
+# running hand webcam 
+
+
 ```
 bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11     mediapipe/examples/desktop/hand_tracking:hand_tracking_gpu
     
