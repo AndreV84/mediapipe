@@ -146,4 +146,9 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_gpu 
     bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11  mediapipe/examples/desktop/iris_tracking:iris_tracking_gpu
     GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/iris_tracking:iris_tracking_gpu--calculator_graph_config_file=mediapipe/graphs/iris_tracking/iris_tracking_gpu.pbtxt
 
+# Upper Pose
+```
+bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11  mediapipe/examples/desktop/upper_body_pose_tracking:upper_body_pose_tracking_gpu
+    GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/upper_body_pose_tracking:upper_body_pose_tracking_gpu--calculator_graph_config_file=mediapipe/graphs/pose_tracking/upper_body_pose_tracking_gpu.pbtxt
+    ```
 
