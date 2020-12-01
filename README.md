@@ -145,6 +145,10 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_gpu 
    # Iris GPU
     bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11  mediapipe/examples/desktop/iris_tracking:iris_tracking_gpu
     GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/iris_tracking:iris_tracking_gpu--calculator_graph_config_file=mediapipe/graphs/iris_tracking/iris_tracking_gpu.pbtxt
+    //known issues https://github.com/google/mediapipe/issues/1265#issuecomment-723389064
+    // we have to comment in the file mediapipe/graphs/iris_tracking/iris_tracking_gpu.pbtxt
+    // the following line : #  input_side_packet: "FOCAL_LENGTH:focal_length_pixel"
+
 
 # Upper Pose
 ```
