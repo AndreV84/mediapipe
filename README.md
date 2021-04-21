@@ -27,10 +27,10 @@ https://mediapipe.readthedocs.io/en/latest/multi_hand_tracking_desktop.html?high
 
 # Installing Bazel & Dependencies
 ```
-sudo nvpmoodel -m0 && sudo jetson_clocks # enabling max performance mode
-cd ~ && mkdir bazel && cd bazel && wget https://github.com/bazelbuild/bazel/releases/download/3.4.0/bazel-3.4.0-dist.zip
+sudo nvpmodel -m0 && sudo jetson_clocks --fan # enabling max performance mode
+cd ~ && mkdir bazel && cd bazel && wget https://github.com/bazelbuild/bazel/releases/download/4.0.0/bazel-4.0.0-dist.zip
 sudo apt-get install build-essential openjdk-8-jdk python zip unzip
-unzip bazel-3.4.0-dist.zip
+unzip bazel-4.0.0-dist.zip
 env EXTRA_BAZEL_ARGS="--host_javabase=@local_jdk//:jdk" bash ./compile.sh
 sudo cp ~/bazel/output/bazel /usr/local/bin/
 ```
