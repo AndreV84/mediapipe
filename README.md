@@ -111,7 +111,7 @@ visibility = ["//visibility:public"],
 ```
 # building and Running an example
 ```
-#export export OPENCV_VERSION=opencv-4.5.0-dev
+#export export OPENCV_VERSION=opencv-4.5.1-dev
 #export LD_LIBRARY_PATH=/usr/local/$OPENCV_VERSION/lib
 bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11 mediapipe/examples/desktop/hand_tracking:hand_tracking_gpu
 
@@ -130,15 +130,16 @@ bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11     medi
 
 ```
 #  running webcam hand sample with direct nvargus access
-USING PATCHED FILE https://github.com/AndreV84/mediapipe/blob/master/demo_run_graph_main_gpu_mod.cc 
-it contains modified fragment that uses rather CSI than USB camera
+#USING PATCHED FILE https://github.com/AndreV84/mediapipe/blob/master/demo_run_graph_main_gpu_mod.cc 
+#the file got obsolete but could be used as modification template
+#it contains modified fragment that uses rather CSI than USB camera
 
 #  building face GPU mesh example
 ```
 bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11 mediapipe/examples/desktop/face_mesh:face_mesh_gpu
 ```
  # runing the gpu face mesh example
- export OPENCV_VERSION=opencv-4.5.0-dev
+ export OPENCV_VERSION=opencv-4.5.1-dev
   export LD_LIBRARY_PATH=/usr/local/$OPENCV_VERSION/lib
 
 GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_gpu --calculator_graph_config_file=mediapipe/graphs/face_mesh/face_mesh_desktop_live_gpu.pbtxt
