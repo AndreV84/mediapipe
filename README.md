@@ -133,6 +133,7 @@ bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11     medi
 #USING PATCHED FILE https://github.com/AndreV84/mediapipe/blob/master/demo_run_graph_main_gpu_mod.cc 
 #the file got obsolete but could be used as modification template
 #it contains modified fragment that uses rather CSI than USB camera
+#for opencv >=4.5.1 use the file [also renameit removing the tail _updated in the filename] # # #  #https://github.com/AndreV84/mediapipe/blob/master/demo_run_graph_main_gpu_mod.cc_updated
 
 #  building face GPU mesh example
 ```
