@@ -66,6 +66,9 @@ wget https://raw.githubusercontent.com/AndreV84/mediapipe/master/config.sub
 
 # Editing mediapipe config files to match opencv installation:
 ```
+#opencv wil require gtk2/3 libraries to be pre requisites
+#sudo apt install libgtk2.0-dev
+#sudo apt-get install -y libgtk-3-dev
 # editing file WORKSPACES in the mediapipe folder:
 
 # In my case I am installing opencv4.5-1 in a custom manner using drafted commands from here # 
