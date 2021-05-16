@@ -142,10 +142,12 @@ bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11     medi
 bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11 mediapipe/examples/desktop/face_mesh:face_mesh_gpu
 ```
  # runing the gpu face mesh example
+ ```
  export OPENCV_VERSION=opencv-4.5.1-dev
   export LD_LIBRARY_PATH=/usr/local/$OPENCV_VERSION/lib
 
 GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_gpu --calculator_graph_config_file=mediapipe/graphs/face_mesh/face_mesh_desktop_live_gpu.pbtxt
+```
    # Iris GPU
     bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11  mediapipe/examples/desktop/iris_tracking:iris_tracking_gpu
     GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/iris_tracking:iris_tracking_gpu--calculator_graph_config_file=mediapipe/graphs/iris_tracking/iris_tracking_gpu.pbtxt
