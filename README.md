@@ -115,7 +115,8 @@ visibility = ["//visibility:public"],
 #export LD_LIBRARY_PATH=/usr/local/$OPENCV_VERSION/lib
 bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11 mediapipe/examples/desktop/hand_tracking:hand_tracking_gpu
 
-GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_gpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_mobile.pbtxt --input_video_path=/home/nvidia/Downloads/Big_Buck_Bunny_1080_10s_30MB.mp4 --output_video_path=/home/nvidia/Downloads/output.mp4
+GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_gpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_desktop_live_gpu.pbtxt 
+ --input_video_path=/home/nvidia/Downloads/Big_Buck_Bunny_1080_10s_30MB.mp4 --output_video_path=/home/nvidia/Downloads/output.mp4
 ```
 
 
@@ -126,7 +127,8 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_track
 ```
 bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11     mediapipe/examples/desktop/hand_tracking:hand_tracking_gpu
     
-    GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_gpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_mobile.pbtxt
+    GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_gpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_desktop_live_gpu.pbtxt 
+
 
 ```
 #  running webcam hand sample with direct nvargus access
