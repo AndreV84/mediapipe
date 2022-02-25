@@ -2,6 +2,7 @@ wget https://github.com/opencv/opencv_contrib/archive/refs/tags/4.5.5.zip
 unzip 4.5.5.zip 
 rm 4.5.5.zip
 wget https://github.com/opencv/opencv/archive/4.5.5.zip
+unzip 4.5.5.zip
 rm 4.5.5.zip
 cd opencv-4.5.5
 mkdir build
