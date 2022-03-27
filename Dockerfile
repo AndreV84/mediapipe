@@ -40,7 +40,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libopencv-video-dev \
         libopencv-calib3d-dev \
         libopencv-features2d-dev \
-        software-properties-common && \
+        software-properties-common  \
         mesa-common-dev libegl1-mesa-dev libgles2-mesa-dev mesa-utils unzip cmake && \
     add-apt-repository -y ppa:openjdk-r/ppa && \
     apt-get update && apt-get install -y openjdk-8-jdk && \
