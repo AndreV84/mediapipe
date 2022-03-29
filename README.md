@@ -176,3 +176,13 @@ single command execution [ the docker container image will get downloaded from t
 export DISPLAY=:0 #or 1 in accordance with your environment
 xhost +
 docker run -it --rm --net=host --runtime nvidia -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix -v /tmp/argus_socket:/tmp/argus_socket --cap-add SYS_PTRACE --device /dev/video0:/dev/video0 --device /dev/video1:/dev/video1 --device /dev/video2:/dev/video2  --name mediapipe_zed_rev1 iad.ocir.io/idso6d7wodhe/mediapipe_zed:latest /bin/bash -c 'GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_gpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_desktop_live_gpu.pbtxt'
+# Docker-hand-usb-video0-example-building-container-locally
+```
+git clone https://github.com/google/mediapipe.git
+cd mediapipe
+mv Dockerfile bak_Dockerfile
+wget https://raw.githubusercontent.com/AndreV84/mediapipe/master/Dockerfile
+docker build --tag=mediapipe .
+export DISPLAY=:0 #or 1
+xhost +
+docker run -it --rm --net=host --runtime nvidia -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix -v /tmp/argus_socket:/tmp/argus_socket --cap-add SYS_PTRACE --device /dev/video0:/dev/video0 --name mediapipe mediapipe:latest /bin/bash -c 'GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_gpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_desktop_live_gpu.pbtxt'
