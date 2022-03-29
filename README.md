@@ -191,14 +191,20 @@ docker run -it --rm --net=host --runtime nvidia -e DISPLAY=$DISPLAY -v /tmp/.X11
  
  # Docker iris
  ```
+  export DISPLAY=:0
+  xhost +
  docker run -it --rm --net=host --runtime nvidia -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix -v /tmp/argus_socket:/tmp/argus_socket --cap-add SYS_PTRACE --device /dev/video0:/dev/video0  iad.ocir.io/idso6d7wodhe/mediapipe:latest /bin/bash -c 'GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/iris_tracking/iris_tracking_gpu --calculator_graph_config_file=mediapipe/graphs/iris_tracking/iris_tracking_gpu.pbtxt'
  ```
  # Docker pose tracking
  ```
+  export DISPLAY=:0
+  xhost +
 docker run -it --rm --net=host --runtime nvidia -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix -v /tmp/argus_socket:/tmp/argus_socket --cap-add SYS_PTRACE --device /dev/video0:/dev/video0  iad.ocir.io/idso6d7wodhe/mediapipe:latest /bin/bash -c 'GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/pose_tracking/pose_tracking_gpu --calculator_graph_config_file=mediapipe/graphs/pose_tracking/pose_tracking_gpu.pbtxt'
  ```
   # Docker face mesh
   ```
+  export DISPLAY=:0
+  xhost +
  docker run -it --rm --net=host --runtime nvidia -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix -v /tmp/argus_socket:/tmp/argus_socket --cap-add SYS_PTRACE --device /dev/video0:/dev/video0 iad.ocir.io/idso6d7wodhe/mediapipe:latest /bin/bash -c 'GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_gpu --calculator_graph_config_file=mediapipe/graphs/face_mesh/face_mesh_desktop_live_gpu.pbtxt'
   ```
 ----------------------------------------------------
