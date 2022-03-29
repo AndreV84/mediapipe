@@ -9,7 +9,7 @@ It is an effort to incorporate medipipe to Jetson ecosystem; tested on Jetson Xa
 - [Setting up loopback](#using-cpu-expensive-v4l2loopback-for-webcamera-mode-of-nvargus-csi-jetson-sensor)
 - [Using webcam mode of Jetson CSI sensor via loopback](#running-hand-webcam-sample-using-v4l2loop-above)
 - [Direct access to CSI sensor without the loopback](#under-construction-running-webcam-hand-sample-with-direct-nvargus-access)
-- [Docker implementation] (#Docker-hand-usb-cam-GPU-example)
+- [Docker implementation](#Docker-hand-usb-cam-GPU-example)
 
         
 ## Reference:
