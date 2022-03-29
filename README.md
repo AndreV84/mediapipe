@@ -9,6 +9,7 @@ It is an effort to incorporate medipipe to Jetson ecosystem; tested on Jetson Xa
 - [Setting up loopback](#using-cpu-expensive-v4l2loopback-for-webcamera-mode-of-nvargus-csi-jetson-sensor)
 - [Using webcam mode of Jetson CSI sensor via loopback](#running-hand-webcam-sample-using-v4l2loop-above)
 - [Direct access to CSI sensor without the loopback](#under-construction-running-webcam-hand-sample-with-direct-nvargus-access)
+- [Docker implementation] (#Docker-hand-usb-cam-GPU-example)
 
         
 ## Reference:
@@ -169,4 +170,9 @@ bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11  mediapi
     GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/upper_body_pose_tracking/upper_body_pose_tracking_gpu--calculator_graph_config_file=mediapipe/graphs/pose_tracking/upper_body_pose_tracking_gpu.pbtxt
  ```   
 
-
+# Docker-hand-usb-cam-GPU-example
+single command execution [ simplified ]
+```
+export DISPLAY=:0 #or 1 in accordance with your environment
+xhost +
+docker run -it --rm --net=host --runtime nvidia -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix -v /tmp/argus_socket:/tmp/argus_socket --cap-add SYS_PTRACE --device /dev/video0:/dev/video0 --device /dev/video1:/dev/video1 --device /dev/video2:/dev/video2  --name mediapipe_zed_rev1 iad.ocir.io/idso6d7wodhe/mediapipe_zed:latest /bin/bash -c 'GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_gpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_desktop_live_gpu.pbtxt'
