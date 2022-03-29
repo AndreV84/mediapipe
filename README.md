@@ -171,7 +171,7 @@ bazel build -c opt --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11  mediapi
  ```   
 
 # Docker-hand-usb-cam-GPU-example
-single command execution [ simplified ]
+single command execution [ the docker container image will get downloaded from the cloud registry] [ simplified , but default setup expects usb camera on /dev/video2]
 ```
 export DISPLAY=:0 #or 1 in accordance with your environment
 xhost +
